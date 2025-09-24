@@ -1,6 +1,0 @@
-ID,Module,Title,Pre-conditions,Steps,Expected Result,Type (Positive/Negative/Edge),Priority (High/Med/Low),Test Data,Status (Pass/Fail/Blocked),Evidence Link,Comments
-TC-AUTH-001,Auth,Login with valid email & password,User exists & verified,1. Open Login\n2. Enter valid creds\n3. Click Sign in,Redirect to Dashboard ≤2s; name shown,Positive,High,user@test.com / ****,,<link to screenshot/video>,
-TC-AUTH-002,Auth,Reject invalid password,User exists & verified,1. Open Login\n2. Enter valid email + wrong password\n3. Click Sign in,Show error message; no login,Negative,High,,,,
-TC-CRUD-001,Items,Create item - required fields only,Logged-in user,1. Go to Items\n2. Click New\n3. Fill required fields\n4. Save,Item created; appears in list; success toast,Positive,High,Sample title,,,
-TC-RESP-001,Responsive,Navbar collapses at <768px,N/A,1. Resize viewport to 375x812\n2. Open home,Hamburger menu visible; items accessible,Edge,Med,,,,
-TC-I18N-001,i18n,Switch language to vi-VN,N/A,1. Open Settings\n2. Change language to vi-VN,All UI strings in Vietnamese; preserved after reload,Positive,Med,,,,

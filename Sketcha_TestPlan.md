@@ -3,7 +3,7 @@
 **Project:** Sketcha Web App (Realtime collaborative whiteboard)  
 **Version/Build:** v0.1-staging (build TBD)  
 **Date:** 2025-09-24  
-**Owner:** <Your Name>
+**Owner:** Tran Phuong Quang Huy, Tran Ngoc Dang Khoi
 
 ## 1. Objectives
 - Validate critical flows: Authentication, Board CRUD, Real-time collaboration, Drawing tools, Sharing/Permissions, Export/Import.
