@@ -32,11 +32,7 @@ Welcome to my **QA Portfolio Project** where I demonstrate end-to-end manual tes
   <br><em>Click to view full image</em>
 </div>
 
-### 2. TestRail Test Run (Execution Results)
-![Test Run Screenshot](./Screenshots/TR_TestRun.png)
 
-### 3. Test Case Detail
-![Case Detail Screenshot](./Screenshots/TR_CaseDetail.png)
 
 ---
 
