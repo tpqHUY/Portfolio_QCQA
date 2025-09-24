@@ -34,33 +34,11 @@ Welcome to my **QA Portfolio Project** where I demonstrate end-to-end manual tes
 
 
 
----
 
-## 🚀 Workflow Demonstrated
-1. **Test Design (D1–D2):** Analyzed requirements → wrote 45 test cases (Positive, Negative, Edge).  
-2. **Execution (D3–D5):** Ran tests, logged reproducible defects (screenshots/video + console/HAR).  
-3. **Realtime Testing:** Simulated 2–3 concurrent users to verify presence, cursor sync, shape/comment sync.  
-4. **Regression (D6):** Verified fixes, executed regression suite.  
-5. **Reporting:** Compiled Sprint QA Report (coverage, pass-rate, defects, risks, recommendations).
-
----
-
-## 🛠 Tools & Techniques
-- **Test Management:** TestRail (sections, runs, execution)  
-- **Bug Tracking:** Jira-style bug reports  
-- **Documentation:** Confluence-style notes/reports  
-- **Techniques:** BVA · EP · State Transition · Decision Table · Exploratory  
-- **Evidence:** Screenshots · ScreenToGif clips · Console/HAR logs  
-
----
-
-## 🔗 Portfolio Hub
-- [GitHub Repository (this page)](https://github.com/yourusername/qa-portfolio)  
-- Google Drive Backup (PDF/Video evidence): <link>  
 
 ---
 
 👤 **Author:** Tran Phuong Quang Huy  
 🎯 Target Role: QA/QC Intern (Web/App Testing)  
-📧 Contact: your.email@example.com | [LinkedIn](https://linkedin.com/in/yourprofile)
+📧 Contact: tpqhuy.work@gmail.com | [LinkedIn](https://www.linkedin.com/in/tpqhuy/)
 
