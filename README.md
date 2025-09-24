@@ -3,7 +3,7 @@
 Welcome to my **QA Portfolio Project** where I demonstrate end-to-end manual testing workflow on a real web app scenario.
 
 ## 📌 Project Overview
-- **Application Under Test (AUT):** *Sketcha* – a collaborative whiteboard web app (demo case study).
+- **Application Under Test (AUT):** *Sketcha* – a collaborative whiteboard web app (Group Web App).
 - **Scope:** Auth · Board CRUD · Realtime Collaboration · Canvas Tools · Layers · History · Export/Import · Share/Permissions · Responsive · i18n.
 - **Focus:** Manual testing design & execution, realtime sync verification, bug reporting, and sprint-level reporting.
 
@@ -25,7 +25,12 @@ Welcome to my **QA Portfolio Project** where I demonstrate end-to-end manual tes
 ## 📸 TestRail Screenshots
 
 ### 1. TestRail Sections
-![Sections Screenshot](./Screenshots/TestRail_Testcases.png)
+<div align="center">
+  <a href="./Screenshots/TestRail_Testcases.png">
+    <img src="./Screenshots/TestRail_Testcases.png" alt="TestRail Sections" width="800">
+  </a>
+  <br><em>Click to view full image</em>
+</div>
 
 ### 2. TestRail Test Run (Execution Results)
 ![Test Run Screenshot](./Screenshots/TR_TestRun.png)
