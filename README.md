@@ -25,7 +25,7 @@ Welcome to my **QA Portfolio Project** where I demonstrate end-to-end manual tes
 ## 📸 TestRail Screenshots
 
 ### 1. TestRail Sections
-![Sections Screenshot](./Screenshots/TR_Sections.png)
+![Sections Screenshot](./Screenshots/TestRail_Testcases.png)
 
 ### 2. TestRail Test Run (Execution Results)
 ![Test Run Screenshot](./Screenshots/TR_TestRun.png)
