@@ -1,0 +1,97 @@
+ID,Module,Title,Pre-conditions,Steps,Expected Result,Type (Positive/Negative/Edge),Priority,Test Data,Evidence Link,Comments
+TC-AUTH-001,Auth,Login with valid credentials,User exists & verified,"1. Open /login
+2. Enter valid email/password
+3. Click Sign in",Redirect to Boards dashboard ≤2s; session cookie set; user name visible,Positive,High,user+owner@example.com / ****,,
+TC-AUTH-002,Auth,Reject invalid password,User exists,"1. Open /login
+2. Enter valid email + wrong password
+3. Sign in",Inline error; no session; rate-limit respected,Negative,High,,,
+TC-AUTH-003,Auth,Password reset flow,User has email access,"1. Click 'Forgot password'
+2. Submit email
+3. Open reset link
+4. Set new password",Email sent; token valid once; can login with new password,Positive,Med,,,
+TC-AUTH-004,Auth,Email format validation,N/A,"1. Enter bad email format
+2. Submit",Client-side validation error; no request sent,Negative,Low,,,
+TC-AUTH-005,Auth,Session persists after refresh,Logged-in,"1. Refresh page
+2. Navigate to /boards",Still authenticated; no relogin required,Edge,Med,,,
+TC-AUTH-006,Auth,Logout clears session,Logged-in,"1. Click Logout
+2. Open protected route",Redirect to /login; no access,Positive,High,,,
+TC-AUTH-007,Auth,Rate limiting after multiple failures,N/A,1. Attempt 6 wrong passwords within a minute,Error changes to rate-limited; further attempts blocked temporarily,Edge,Med,,,
+TC-AUTH-008,Auth,CSRF protection on login form,N/A,1. Submit login without CSRF token (DevTools),Request rejected; safe error,Negative,High,,,
+TC-BRD-001,Board,Create new board (default template),Logged-in,"1. Click 'New board'
+2. Choose default
+3. Confirm",Board opens with empty canvas; listed on dashboard,Positive,High,,,
+TC-BRD-002,Board,Rename board,Owner of board,"1. Open board title
+2. Enter new name
+3. Confirm",New title shown in UI & dashboard; persists after refresh,Positive,Med,,,
+TC-BRD-003,Board,Duplicate board,Owner,"1. From dashboard, duplicate board",Copy created with 'Copy of …'; same content,Positive,Med,,,
+TC-BRD-004,Board,Delete board (confirm dialog),Owner,"1. Click Delete
+2. Confirm",Board removed from list; cannot open; snackbar success,Positive,High,,,
+TC-BRD-005,Board,Prevent non-owner delete,Viewer/Editor but not owner,"1. Open board menu
+2. Observe 'Delete'",Delete action hidden/disabled; server forbids if forced,Negative,High,,,
+TC-BRD-006,Board,Open board from direct URL,Board exists,"1. Paste /board/<id>
+2. Load",Board content loads; 404 for non-existent,Edge,Med,,,
+TC-COL-001,Collaboration,Presence indicators show active users,Two users logged into same board,"1. Open same board in User A & B
+2. Observe avatars",Shows two avatars; hover shows names,Positive,High,,,
+TC-COL-002,Collaboration,Live cursor positions sync,Two users A/B,"1. Move A's cursor
+2. Observe on B",B sees A's cursor smoothly (<300ms),Positive,High,,,
+TC-COL-003,Collaboration,Shape creation sync,Two users A/B,"1. A draws rectangle
+2. B observes",Rectangle appears on B within <500ms; same props,Positive,High,,,
+TC-COL-004,Collaboration,Comment creation sync,Two users A/B,"1. A adds comment on shape
+2. B observes",Comment appears; thread count updated,Positive,Med,,,
+TC-COL-005,Collaboration,Conflict rule: last write wins for text,Two users A/B edit same text box,"1. A edits text
+2. B simultaneously edits
+3. Save","Defined rule applies (e.g., last write wins) with minimal flicker",Edge,Med,,,
+TC-COL-006,Collaboration,Reconnect after network drop,Two users; drop A's network,"1. A disconnects 10s
+2. Reconnect
+3. Observe sync",A resyncs; no duplicate shapes; history preserved,Positive,High,,,
+TC-COL-007,Collaboration,Access control enforced on WS join,Viewer role,"1. Viewer opens board
+2. Attempt shape creation",Server rejects write; UI disables tools,Negative,High,,,
+TC-CAN-001,Canvas,Freehand pen draws with selected color & width,Board open,"1. Select Pen (blue, 4px)
+2. Draw stroke",Stroke visible with color/width; smooth lines,Positive,High,,,
+TC-CAN-002,Canvas,Rectangle shape with fill & stroke,Board open,"1. Insert rectangle (fill=#fff, stroke=#000, 2px)",Rectangle rendered; properties editable,Positive,Med,,,
+TC-CAN-003,Canvas,Arrow snaps to 45° with Shift,Board open,"1. Hold Shift
+2. Draw arrow",Angle snapped to multiples of 45°,Edge,Low,,,
+TC-CAN-004,Canvas,Text box editing and font changes,Board open,"1. Insert text
+2. Type
+3. Change font/size",Text updates; caret behavior correct,Positive,Med,,,
+TC-CAN-005,Canvas,Color picker updates selected objects,Object selected,1. Change stroke color,Object reflects new color,Positive,Low,,,
+TC-CAN-006,Canvas,Eraser deletes selected object,Object selected,1. Press Delete/Eraser,Object removed; undo restores,Positive,Med,,,
+TC-CAN-007,Canvas,Snap/align guides appear on near align,Multiple objects,1. Move object near center/others,Guides show; object snaps,Edge,Low,,,
+TC-CAN-008,Canvas,Performance: pan/zoom remains smooth on 100 shapes,Populate 100 shapes,"1. Zoom to 200%
+2. Pan around",FPS acceptable (>30); no major stutter,Edge,Med,,,
+TC-LAY-001,Layers,Bring to front / send to back,Two overlapping shapes,"1. Select back shape
+2. Bring to front",Z-order updates correctly,Positive,Low,,,
+TC-LAY-002,Layers,Lock prevents moving/editing,Lock a shape,1. Try to move/edit locked shape,Action blocked; lock icon shown,Positive,Med,,,
+TC-LAY-003,Layers,Group/Ungroup multiple objects,Select 3 objects,"1. Group
+2. Move group
+3. Ungroup",Behaves as single unit; ungroup restores,Positive,Low,,,
+TC-HIS-001,History,Undo reverts last action,At least 1 action done,"1. Draw shape
+2. Undo",Last action undone; canvas state updates,Positive,High,,,
+TC-HIS-002,History,Redo reapplies undone action,After undo,1. Redo,Action reapplied,Positive,High,,,
+TC-VIEW-001,View,Zoom in/out shortcuts,Board open,"1. Ctrl/Cmd + +
+2. Ctrl/Cmd + -",Zoom level changes; toolbar reflects value,Positive,Low,,,
+TC-VIEW-002,View,Pan with spacebar hand tool,Board open,"1. Hold Space
+2. Drag canvas",Canvas pans; cursor changes to hand,Positive,Low,,,
+TC-EXP-001,Export,Export PNG of selection,Board with objects,"1. Select area
+2. Export PNG",PNG downloaded; correct bounds/transparency,Positive,Med,,,
+TC-EXP-002,Export,Export SVG preserves vectors,Vector shapes present,"1. Export SVG
+2. Open in viewer",Vectors intact; text preserved,Positive,Low,,,
+TC-EXP-003,Import,Import JSON recreates board,Have JSON export,1. Import JSON file,Board reconstructed; IDs stable/conflict-free,Positive,Med,,,
+TC-EXP-004,Paste,Paste image from clipboard,Clipboard image available,1. Ctrl/Cmd+V,Image appears at cursor; selectable,Positive,Low,,,
+TC-SHR-001,Share,Share link - Viewer role,Owner,"1. Share → create link (Viewer)
+2. Open in incognito",Can view only; tools disabled,Positive,High,,,
+TC-SHR-002,Share,Upgrade Viewer to Editor,Owner + viewer,"1. Invite viewer
+2. Change role to Editor",Editor gains write; UI updates without reload,Positive,Med,,,
+TC-SHR-003,Share,Prevent Editor from changing owner-only settings,Editor logged in,1. Open board settings,Owner-only toggles hidden/disabled,Negative,High,,,
+TC-SHR-004,Share,Revoke link access,Owner,"1. Disable link share
+2. Open old link",Access denied (401/403),Positive,High,,,
+TC-CMT-001,Comments,Add and resolve comment thread,Board with shape,"1. Add comment
+2. Reply
+3. Mark resolved",Thread marked resolved; hidden by default,Positive,Low,,,
+TC-CMT-002,Comments,@mention notifies user,Two users,"1. A comments @B
+2. Check B notifications/email",Notification delivered; link opens board,Edge,Low,,,
+TC-RSP-001,Responsive,Toolbar collapses on 768px,N/A,"1. Resize to 768x
+2. Observe toolbar",Toolbar collapses; actions accessible via overflow,Positive,Low,,,
+TC-RSP-002,Responsive,Canvas gestures on tablet,iPad Safari,"1. Pinch zoom
+2. Two-finger pan",Gestures work; no accidental draw,Edge,Med,,,
+TC-I18N-001,i18n,Switch language to vi-VN,N/A,1. Settings → Language → vi-VN,UI strings localized; persists after reload,Positive,Low,,,
