@@ -32,9 +32,13 @@ Welcome to my **QA Portfolio Project** where I demonstrate end-to-end manual tes
   <br><em>Click to view full image</em>
 </div>
 
-
-
-
+### 2. TestRail Test Run
+<div align="center">
+  <a href="./Screenshots/TestRail_TestRuns.png">
+    <img src="./Screenshots/TestRail_TestRuns.png" alt="TestRail Sections" width="800">
+  </a>
+  <br><em>Click to view full image</em>
+</div>
 
 ---
 
