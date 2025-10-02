@@ -15,7 +15,7 @@ Welcome to my **QA Portfolio Project** where I demonstrate end-to-end manual tes
 |----------|-----------|
 | **Test Plan** | [Sketcha_TestPlan.md](./Sketcha_TestPlan.md) |
 | **Test Cases (50+)** | [Sketcha_TestCases.csv](./Sketcha_TestCases.csv) *(import-ready for TestRail/Sheets)* |
-| **Bug Reports ** | [BugReports/](./BugReports) |
+| **Bug Reports** | [BugReports/](./BugReports) |
 | **Sprint QA Report** | [SprintReport.md](./SprintReport.md) |
 | **Mind Map** | [Sketcha_Mindmap.mmd](./Sketcha_Mindmap.mmd) *(Mermaid format)* |
 | **TestRail Screenshots** | [Screenshots/](./Screenshots) |
